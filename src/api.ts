@@ -12,7 +12,7 @@ export class ApiError extends Error {
 const normalizeBaseUrl = (value: string) => value.replace(/\/+$/, "");
 const normalizePath = (value: string) => (value.startsWith("/") ? value : `/${value}`);
 
-const API_BASE = normalizeBaseUrl(import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8787");
+const API_BASE = normalizeBaseUrl(import.meta.env.VITE_API_BASE_URL || "https://max-buffet-api.felipegalvao-fsg.workers.dev/");
 
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const response = await fetch(`${API_BASE}${normalizePath(path)}`, {
